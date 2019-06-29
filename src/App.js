@@ -1,26 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Button from './components/MusicButton'
 
-function App() {
+export default () => {
+  const [button, updateButton] = useState('A')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div onClick={() => updateButton('ice')}>ice</div>
+      <div onClick={() => console.log(button)}>icoo</div>
+      <Button text={button} />
+    </>
+  )
 }
-
-export default App;
