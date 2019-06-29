@@ -6,6 +6,8 @@ const Container = styled.div`
   z-index: 1000;
   height: 100%;
   width: 100%;
+  top: 0px;
+  left: 0px;
   background-color: black;
   display: ${({ visible }) => (visible ? 'flex' : 'none')};
   transition: 0.6s;
@@ -23,6 +25,10 @@ const Wraper = styled.div`
   width: max-content;
   height: max-content;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `
 
 export default ({ visible, children }) => (

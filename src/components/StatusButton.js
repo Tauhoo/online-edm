@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import loop from '../assets/loop.svg'
 import hand from '../assets/hand.svg'
+import flash from '../assets/flash.svg'
 
 /*
 
@@ -37,10 +38,10 @@ const Center = styled.div`
 `
 const Train = styled.div`
   height: 100%;
-  width: 200px;
+  width: 300px;
   position: absolute;
   top: 0px;
-  left: ${({ status }) => (status ? '-100px' : '0px')};
+  left: ${({ status }) => ['0px', '-100px', '-200px'][status]};
   transition: 0.3s;
 `
 
@@ -48,8 +49,10 @@ export default ({ onChange, defaultValue }) => {
   const [status, updateStatus] = useState(defaultValue)
 
   const onClick = () => {
-    updateStatus(!status)
-    if (onChange) onChange(!status)
+    updateStatus(status === 2 ? 0 : status + 1)
+    console.log(status === 2 ? 0 : status + 1)
+
+    if (onChange) onChange(status === 2 ? 0 : status + 1)
   }
 
   return (
@@ -65,6 +68,12 @@ export default ({ onChange, defaultValue }) => {
           <Center>
             <span>loop</span>
             <img src={loop} />
+          </Center>
+        </Wraper>
+        <Wraper>
+          <Center>
+            <span>burst</span>
+            <img src={flash} />
           </Center>
         </Wraper>
       </Train>

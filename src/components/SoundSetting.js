@@ -17,16 +17,16 @@ export default ({ onChange, defaultValue }) => {
   const [music, updateMusic] = useState(
     new Howl({
       src: [defaultValue.url],
-      loop: true,
-      xhrWithCredentials: false,
+      loop: defaultValue.status !== 2,
+      xhrWithCredentials: true,
     }),
   )
 
   const onSave = () => {
     const sound = new Howl({
       src: [url],
-      loop: true,
-      xhrWithCredentials: false,
+      loop: status !== 2,
+      xhrWithCredentials: true,
     })
 
     if (onChange) onChange({ key, status, url, id: defaultValue.id })
@@ -37,18 +37,20 @@ export default ({ onChange, defaultValue }) => {
   const KeyDown = ({ keyCode }) => {
     if (!music || keyCode !== key) return
 
-    if (status) {
+    if (status === 1) {
       if (music.playing()) return music.stop()
       music.play()
-    } else {
+    } else if (status === 0) {
       if (music.playing()) return
+      music.play()
+    } else {
       music.play()
     }
   }
 
   const KeyUp = ({ keyCode }) => {
     if (!music || keyCode !== key) return
-    if (!status) {
+    if (status === 0) {
       music.stop()
     }
   }

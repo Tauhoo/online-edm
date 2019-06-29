@@ -7,6 +7,16 @@ const Container = styled.div`
   grid-template-columns: repeat(5, 100px);
   grid-gap: 10px;
   padding: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  @media (max-width: 610px) {
+    grid-template-columns: repeat(3, 100px);
+    width: 320px;
+  }
+  @media (max-width: 390px) {
+    grid-template-columns: repeat(2, 100px);
+    width: 210px;
+  }
 `
 
 export default ({ children }) => <Container>{children}</Container>
