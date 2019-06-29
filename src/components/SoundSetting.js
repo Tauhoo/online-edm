@@ -5,6 +5,7 @@ import Button from './Button'
 import MusicButton from './MusicButton'
 import Input from './Input'
 import GetKey from './GetKey'
+import StatusButton from './StatusButton'
 
 const Container = styled.div``
 
@@ -17,6 +18,8 @@ export default () => {
         <Input placeholder="audio url" />
         <br />
         <GetKey />
+        <br />
+        <StatusButton />
         <br />
         <Button onClick={() => updateVisible(false)}>save</Button>
       </Modal>
