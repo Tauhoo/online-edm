@@ -44,8 +44,8 @@ const Train = styled.div`
   transition: 0.3s;
 `
 
-export default ({ onChange }) => {
-  const [status, updateStatus] = useState(false)
+export default ({ onChange, defaultValue }) => {
+  const [status, updateStatus] = useState(defaultValue)
 
   const onClick = () => {
     updateStatus(!status)

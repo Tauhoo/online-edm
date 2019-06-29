@@ -55,10 +55,10 @@ const Key = styled.span`
   color: white;
 `
 
-export default ({ onChange }) => {
+export default ({ onChange, defaultValue }) => {
   const [animate, updateAnimate] = useState(false)
   const [isFocus, updateFocus] = useState(false)
-  const [key, updateKey] = useState(null)
+  const [key, updateKey] = useState(defaultValue)
 
   const onType = e => {
     updateAnimate(!animate)

@@ -13,6 +13,6 @@ const Container = styled.input`
   font-size: 1em;
 `
 
-export default ({ onChange, placeholder }) => {
-  return <Container onChange={onChange} placeholder={placeholder} />
+export default props => {
+  return <Container {...props} />
 }
